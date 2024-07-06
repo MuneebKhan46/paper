@@ -292,7 +292,7 @@ true_labels = np.argmax(y_test, axis=-1)
 
 precision, recall, _ = precision_recall_curve(true_labels, predictions)
 
-pr_data = pd.DataFrame({'Precision': precision, 'Recall': recall) })
+pr_data = pd.DataFrame({'Precision': precision, 'Recall': recall })
 file_path = '/WACV_Paper/Plots_RAW/VGG16_Diff_wCW_PR_Curve.csv'
 pr_data.to_csv(file_path, index=False)
 
@@ -369,7 +369,7 @@ true_labels = np.argmax(y_test, axis=-1)
 
 precision, recall, _ = precision_recall_curve(true_labels, predictions)
 
-pr_data = pd.DataFrame({'Precision': precision, 'Recall': recall) })
+pr_data = pd.DataFrame({'Precision': precision, 'Recall': recall })
 file_path = '/WACV_Paper/Plots_RAW/VGG16_Diff_CW_PR_Curve.csv'
 pr_data.to_csv(file_path, index=False)
 
