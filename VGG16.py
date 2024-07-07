@@ -314,9 +314,9 @@ plt.savefig(precision_recall_curve_path, dpi=300)
 plt.close()
 
 
-report = classification_report(true_labels, predicted_labels, output_dict=True, target_names=["Non-Ghosting Artifact", "Ghosting Artifact"])
+report = classification_report(y_test, predicted_labels, output_dict=True, target_names=["Non-Ghosting Artifact", "Ghosting Artifact"])
 
-conf_matrix = confusion_matrix(true_labels, predicted_labels)
+conf_matrix = confusion_matrix(y_test, predicted_labels)
 TN = conf_matrix[0, 0]
 FP = conf_matrix[0, 1]
 FN = conf_matrix[1, 0]
@@ -389,9 +389,9 @@ plt.savefig(precision_recall_curve_path, dpi=300)
 plt.close()
 
 
-report = classification_report(true_labels, predicted_labels, output_dict=True, target_names=["Non-Ghosting Artifact", "Ghosting Artifact"])
+report = classification_report(y_test, predicted_labels, output_dict=True, target_names=["Non-Ghosting Artifact", "Ghosting Artifact"])
 
-conf_matrix = confusion_matrix(true_labels, predicted_labels)
+conf_matrix = confusion_matrix(y_test, predicted_labels)
 TN = conf_matrix[0, 0]
 FP = conf_matrix[0, 1]
 FN = conf_matrix[1, 0]
