@@ -289,6 +289,9 @@ predictions = vgg16_wcw_model.predict(X_test)
 predicted_labels = np.argmax(predictions, axis=1)
 # true_labels = np.argmax(y_test, axis=-1)
 
+
+true_labels = y_test
+
 print(f"True_labels Shape: {y_test.shape}")
 print(f"Predictions Shape: {predictions.shape}")
 print(f"Predicted_labels Shape: {predicted_labels.shape}")
