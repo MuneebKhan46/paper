@@ -338,7 +338,7 @@ wcw_model_early_stopping = keras.callbacks.EarlyStopping(monitor='val_accuracy',
 wcw_history = mobNet_wcw_model.fit(X_train, y_train, epochs=50, validation_data=(X_val, y_val), callbacks=[wcw_model_checkpoint, wcw_model_early_stopping])
 
 wcw_history_df = pd.DataFrame(wcw_history.history)
-wcw_history_df.to_csv('/WACV_Paper/Models_RAW/History/MobileNet_Diff_wCW.csv', index=False)
+wcw_history_df.to_csv('/WACV_Paper/History/MobileNet_Diff_wCW.csv', index=False)
 
 
 ##########################################################################################################################################################################
@@ -371,7 +371,7 @@ cw_model_early_stopping = keras.callbacks.EarlyStopping(monitor='val_accuracy', 
 cw_history = mobNet_cw_model.fit(X_train, y_train, epochs=50, class_weight=class_weight, validation_data=(X_val, y_val), callbacks=[cw_model_early_stopping, cw_model_checkpoint])
 
 cw_history_df = pd.DataFrame(cw_history.history)
-cw_history_df.to_csv('/WACV_Paper/Models_RAW/History/MobileNet_Diff_CW.csv', index=False)
+cw_history_df.to_csv('/WACV_Paper/History/MobileNet_Diff_CW.csv', index=False)
 ##########################################################################################################################################################################
 ##########################################################################################################################################################################
                                                                     # Testing
