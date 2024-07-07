@@ -293,7 +293,7 @@ print(f"True_labels Shape: {true_labels.shape}")
 print(f"Predictions Shape: {predictions.shape}")
 print(f"Predicted_labels Shape: {predicted_labels.shape}")
 
-positive_class_probs = predictions[:, 1]
+positive_class_probs = predictions[:, 0]
 print(f"positive_class_probs Shape: {positive_class_probs.shape}")
 
 precision, recall, _ = precision_recall_curve(true_labels, positive_class_probs)
