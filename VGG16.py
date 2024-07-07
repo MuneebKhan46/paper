@@ -239,7 +239,7 @@ vgg16_wcw_model.compile(optimizer=opt, loss='binary_crossentropy', metrics=['acc
 wcw_model_checkpoint = keras.callbacks.ModelCheckpoint(filepath='/WACV_Paper/Models_RAW/VGG16_Diff_wCW.keras', save_best_only=True, monitor='val_accuracy', mode='max', verbose=1)
 wcw_model_early_stopping = keras.callbacks.EarlyStopping(monitor='val_accuracy', min_delta=0, patience=10, restore_best_weights=True)
 
-wcw_history = vgg16_wcw_model.fit(X_train, y_train, epochs=2, validation_data=(X_val, y_val), callbacks=[wcw_model_checkpoint, wcw_model_early_stopping])
+wcw_history = vgg16_wcw_model.fit(X_train, y_train, epochs=1, validation_data=(X_val, y_val), callbacks=[wcw_model_checkpoint, wcw_model_early_stopping])
 
 
 ##########################################################################################################################################################################
@@ -267,7 +267,7 @@ vgg16_cw_model.compile(optimizer=opt, loss='binary_crossentropy', metrics=['accu
 cw_model_checkpoint = keras.callbacks.ModelCheckpoint(filepath='/WACV_Paper/Models_RAW/VGG16_Diff_CW.keras', save_best_only=True, monitor='val_accuracy', mode='max', verbose=1)
 cw_model_early_stopping = keras.callbacks.EarlyStopping(monitor='val_accuracy', min_delta=0, patience=10, restore_best_weights=True)
 
-cw_history = vgg16_cw_model.fit(X_train, y_train, epochs=2, class_weight=class_weight, validation_data=(X_val, y_val), callbacks=[cw_model_early_stopping, cw_model_checkpoint])
+cw_history = vgg16_cw_model.fit(X_train, y_train, epochs=1, class_weight=class_weight, validation_data=(X_val, y_val), callbacks=[cw_model_early_stopping, cw_model_checkpoint])
 
 
 ##########################################################################################################################################################################
@@ -289,7 +289,14 @@ predictions = vgg16_wcw_model.predict(X_test)
 predicted_labels = np.argmax(predictions, axis=1)
 true_labels = np.argmax(y_test, axis=-1)
 
-precision, recall, _ = precision_recall_curve(true_labels, predictions[:, 1])
+print(f"True_labels Shape: {true_labels.shape}")
+print(f"Predictions Shape: {predictions.shape}")
+print(f"Predicted_labels Shape: {predicted_labels.shape}")
+print(f"positive_class_probs Shape: {positive_class_probs.shape}")
+
+positive_class_probs = predictions[:, 1]
+
+precision, recall, _ = precision_recall_curve(true_labels, positive_class_probs)
 
 pr_data = pd.DataFrame({'Precision': precision, 'Recall': recall })
 file_path = '/WACV_Paper/Plots_RAW/VGG16_Diff_wCW_PR_Curve.csv'
@@ -364,6 +371,7 @@ test_acc  = test_acc *100
 
 predictions = vgg16_cw_model.predict(X_test)
 predicted_labels = np.argmax(predictions, axis=1)
+
 true_labels = np.argmax(y_test, axis=-1)
 
 precision, recall, _ = precision_recall_curve(true_labels, predictions[:, 1])
