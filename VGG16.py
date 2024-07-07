@@ -289,7 +289,7 @@ predictions = vgg16_wcw_model.predict(X_test)
 predicted_labels = np.argmax(predictions, axis=1)
 true_labels = np.argmax(y_test, axis=-1)
 
-precision, recall, _ = precision_recall_curve(true_labels, predictions)
+precision, recall, _ = precision_recall_curve(true_labels, predictions[:, 1])
 
 pr_data = pd.DataFrame({'Precision': precision, 'Recall': recall })
 file_path = '/WACV_Paper/Plots_RAW/VGG16_Diff_wCW_PR_Curve.csv'
@@ -366,7 +366,7 @@ predictions = vgg16_cw_model.predict(X_test)
 predicted_labels = np.argmax(predictions, axis=1)
 true_labels = np.argmax(y_test, axis=-1)
 
-precision, recall, _ = precision_recall_curve(true_labels, predictions)
+precision, recall, _ = precision_recall_curve(true_labels, predictions[:, 1])
 
 pr_data = pd.DataFrame({'Precision': precision, 'Recall': recall })
 file_path = '/WACV_Paper/Plots_RAW/VGG16_Diff_CW_PR_Curve.csv'
