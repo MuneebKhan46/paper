@@ -12,13 +12,11 @@ import matplotlib.pyplot as plt
 
 from tensorflow import keras
 from tensorflow.keras import layers, models
-from tensorflow.keras.models import Model
-from tensorflow.keras.models import load_model
 
 from tensorflow.keras.utils import plot_model
 from keras.models import Sequential
-from tensorflow.keras.layers import Input, Conv2D, DepthwiseConv2D, BatchNormalization, ReLU, GlobalAveragePooling2D, Dense
-from keras.layers import Input, Conv2D, MaxPooling2D, Flatten, Dense, Dropout, BatchNormalization, concatenate
+from tensorflow.keras.layers import Input, Conv2D, DepthwiseConv2D, BatchNormalization, ReLU, GlobalAveragePooling2D
+from keras.layers import  MaxPooling2D, Flatten, Dense, Dropout, concatenate
 from keras.callbacks import ModelCheckpoint,EarlyStopping
 from tensorflow.keras.preprocessing.image import ImageDataGenerator, img_to_array, array_to_img
 from sklearn.model_selection import train_test_split
