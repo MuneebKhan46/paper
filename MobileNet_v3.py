@@ -11,7 +11,7 @@ from tensorflow.keras.regularizers import l1
 import matplotlib.pyplot as plt
 
 from tensorflow import keras
-from tensorflow.keras import layers, Models
+from tensorflow.keras import layers, models
 from tensorflow.keras.models import Model
 from tensorflow.keras.models import load_model
 
