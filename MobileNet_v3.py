@@ -240,9 +240,9 @@ class MobileNetV3(models.Model):
             ])
 
     def _make_bottlenecks(self):
-        layers = []
+        bottleneck_layers = []
         if self.model_type == 'large':
-            layers.extend([
+            bottleneck_layers.extend([
                 Bottleneck(16, 16, 3, 1, 1, False, 'relu'),
                 Bottleneck(16, 24, 3, 4, 2, False, 'relu'),
                 Bottleneck(24, 24, 3, 3, 1, False, 'relu'),
@@ -259,7 +259,7 @@ class MobileNetV3(models.Model):
                 Bottleneck(160, 160, 5, 6, 1, True, hard_swish),
             ])
         else:  # 'small'
-            layers.extend([
+            bottleneck_layers.extend([
                 Bottleneck(16, 16, 3, 1, 2, True, 'relu'),
                 Bottleneck(16, 24, 3, 4.5, 2, False, 'relu'),
                 Bottleneck(24, 24, 3, 3.67, 1, False, 'relu'),
@@ -272,15 +272,13 @@ class MobileNetV3(models.Model):
                 Bottleneck(96, 96, 5, 6, 1, True, hard_swish),
                 Bottleneck(96, 96, 5, 6, 1, True, hard_swish),
             ])
-        return models.Sequential(layers)
+        return models.Sequential(bottleneck_layers)
 
     def call(self, x):
         x = self.init_conv(x)
         x = self.bottlenecks(x)
         x = self.final_layers(x)
         return x
-
-
 
 ##########################################################################################################################################################################
 
