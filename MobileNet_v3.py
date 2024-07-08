@@ -26,10 +26,6 @@ from sklearn.metrics import accuracy_score, precision_recall_fscore_support, log
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, classification_report
 from tensorflow.keras.optimizers import Adam
 
-
-models = []
-class_1_accuracies = []
-
 original_dir = '/WACV_Paper/Dataset/maid-dataset-high-frequency/original'
 denoised_dir = '/WACV_Paper/Dataset/maid-dataset-high-frequency/denoised'
 csv_path     = '/WACV_Paper/Dataset/maid-dataset-high-frequency/classified_label.csv'
