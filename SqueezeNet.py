@@ -264,12 +264,12 @@ print(f"y_Test Shape: {y_test.shape}")
 ##########################################################################################################################################################################
 ##########################################################################################################################################################################
 
-opt = Adam(learning_rate=2e-05)
+# opt = Adam(learning_rate=2e-05)
 
 sqezNet_wcw_model = SqueezeNet(input_shape=(224, 224, 1), num_classes=1)
 sqezNet_wcw_model.build(input_shape=(None, 224, 224, 1))
 
-sqezNet_wcw_model.compile(optimizer=opt, loss='binary_crossentropy', metrics=['accuracy'])
+sqezNet_wcw_model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
     
 wcw_model_checkpoint = keras.callbacks.ModelCheckpoint(filepath='/WACV_Paper/Models_RAW/SqueezeNet_Diff_wCW.keras', save_best_only=True, monitor='val_accuracy', mode='max', verbose=1)
 wcw_model_early_stopping = keras.callbacks.EarlyStopping(monitor='val_accuracy', min_delta=0, patience=10, restore_best_weights=True)
@@ -298,12 +298,12 @@ class_weight = {0: weight_for_0, 1: weight_for_1}
 print('Weight for class 0 (Non-ghosting): {:.2f}'.format(weight_for_0))
 print('Weight for class 1 (Ghosting): {:.2f}'.format(weight_for_1))
 
-opt = Adam(learning_rate=2e-05)
+# opt = Adam(learning_rate=2e-05)
 
 sqezNet_cw_model = SqueezeNet(input_shape=(224, 224, 1), num_classes=1)
 sqezNet_cw_model.build(input_shape=(None, 224, 224, 1))
 
-sqezNet_cw_model.compile(optimizer=opt, loss='binary_crossentropy', metrics=['accuracy'])
+sqezNet_cw_model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
 cw_model_checkpoint = keras.callbacks.ModelCheckpoint(filepath='/WACV_Paper/Models_RAW/SqueezeNet_Diff_CW.keras', save_best_only=True, monitor='val_accuracy', mode='max', verbose=1)
 cw_model_early_stopping = keras.callbacks.EarlyStopping(monitor='val_accuracy', min_delta=0, patience=10, restore_best_weights=True)
