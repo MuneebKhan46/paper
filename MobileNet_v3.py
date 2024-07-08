@@ -6,17 +6,19 @@ import csv
 import textwrap
 import pandas as pd
 
+
 from tensorflow.keras.regularizers import l1
 import matplotlib.pyplot as plt
 
 from tensorflow import keras
 from tensorflow.keras.models import Model
+from tensorflow.keras.models import load_model
+
 from tensorflow.keras.utils import plot_model
 from keras.models import Sequential
-from tensorflow.keras import layers
 from tensorflow.keras.layers import Input, Conv2D, DepthwiseConv2D, BatchNormalization, ReLU, GlobalAveragePooling2D, Dense
 from keras.layers import Input, Conv2D, MaxPooling2D, Flatten, Dense, Dropout, BatchNormalization, concatenate
-from keras.callbacks import ModelCheckpoint
+from keras.callbacks import ModelCheckpoint,EarlyStopping
 from tensorflow.keras.preprocessing.image import ImageDataGenerator, img_to_array, array_to_img
 from sklearn.model_selection import train_test_split
 from sklearn.utils import shuffle as sklearn_shuffle
@@ -24,6 +26,7 @@ from sklearn.utils import shuffle as sklearn_shuffle
 from sklearn.metrics import accuracy_score, precision_recall_fscore_support, log_loss, precision_recall_curve
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, classification_report
 from tensorflow.keras.optimizers import Adam
+
 
 models = []
 class_1_accuracies = []
