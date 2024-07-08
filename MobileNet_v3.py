@@ -177,7 +177,7 @@ class Bottleneck(layers.Layer):
         self.activation = activation
 
         self.expand = models.Sequential([
-            layers.Conv2D(input_channels * expansion_factor, kernel_size=1, strides=1, padding='same', use_bias=False),
+            layers.Conv2D(int(input_channels * expansion_factor), kernel_size=1, strides=1, padding='same', use_bias=False),
             layers.BatchNormalization(),
             layers.Activation(activation)
         ]) if expansion_factor != 1 else lambda x: x
@@ -188,7 +188,7 @@ class Bottleneck(layers.Layer):
             layers.Activation(activation)
         ])
 
-        self.se = SEBlock(input_channels * expansion_factor) if use_se else lambda x: x
+        self.se = SEBlock(int(input_channels * expansion_factor)) if use_se else lambda x: x
 
         self.project = models.Sequential([
             layers.Conv2D(out_channels, kernel_size=1, strides=1, padding='same', use_bias=False),
