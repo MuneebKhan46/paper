@@ -10,6 +10,8 @@ from tensorflow.keras.regularizers import l1
 import matplotlib.pyplot as plt
 
 from tensorflow import keras
+from tensorflow.keras import layers, models
+
 from tensorflow.keras.models import Model
 from tensorflow.keras.utils import plot_model
 from keras.models import Sequential
@@ -23,9 +25,6 @@ from sklearn.utils import shuffle as sklearn_shuffle
 from sklearn.metrics import accuracy_score, precision_recall_fscore_support, log_loss, precision_recall_curve
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, classification_report
 from tensorflow.keras.optimizers import Adam
-
-models = []
-class_1_accuracies = []
 
 original_dir = '/WACV_Paper/Dataset/maid-dataset-high-frequency/original'
 denoised_dir = '/WACV_Paper/Dataset/maid-dataset-high-frequency/denoised'
