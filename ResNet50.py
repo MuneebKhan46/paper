@@ -170,7 +170,7 @@ def resnet_conv_block(x, filters, kernel_size, strides):
     x_shortcut = BatchNormalization()(x_shortcut)
     x = Add()([x, x_shortcut])
     x = ReLU()(x)
-  return x
+    return x
 
 
 def resnet_identity_block(x, filters, kernel_size):
