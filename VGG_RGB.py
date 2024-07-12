@@ -189,7 +189,7 @@ def create_vgg16_model(input_shape=(224,224, 3)):
 
 
 ##########################################################################################################################################################################
-
+print("start")
 original_patches, denoised_patches, labels, denoised_image_names, all_patch_numbers = load_data_from_csv(csv_path, original_dir, denoised_dir)
 
 diff_patches = calculate_difference(original_patches, denoised_patches)
