@@ -344,7 +344,7 @@ wcw_model_early_stopping = keras.callbacks.EarlyStopping(monitor='val_accuracy',
 wcw_history = mobNet_wcw_model.fit(X_train, y_train, epochs=50, validation_data=(X_val, y_val), callbacks=[wcw_model_checkpoint, wcw_model_early_stopping])
 
 wcw_history_df = pd.DataFrame(wcw_history.history)
-wcw_history_df.to_csv('/WACV_Paper/History/HIGH_MobileNet_RAW_wCW.csv', index=False)
+wcw_history_df.to_csv('/WACV_Paper/History_RAW/HIGH_MobileNet_RAW_wCW.csv', index=False)
 
 
 ##########################################################################################################################################################################
@@ -399,7 +399,7 @@ predicted_labels = np.argmax(predictions, axis=1)
 precision, recall, _ = precision_recall_curve(y_test, predictions[:, 0])
 
 pr_data = pd.DataFrame({'Precision': precision, 'Recall': recall })
-file_path = '/WACV_Paper/Plots_RAW/HIGH_MobileNet_RAW_wCW_PR_Curve.csv'
+file_path = '/WACV_Paper/Plots_CSV/HIGH_MobileNet_RAW_wCW_PR_Curve.csv'
 pr_data.to_csv(file_path, index=False)
 
 
