@@ -307,7 +307,7 @@ print(f"y_Test Shape: {y_test.shape}")
 
 input_shape = (224, 224, 1)
 num_classes = 1
-shufflNet_wcw_model = ShuffleNetV2(input_shape=input_shape, num_classes=num_classes, model_size='1.0x')
+shufflNet_wcw_model = ShuffleNetV2(input_shape=input_shape, num_classes=num_classes, model_size='0.5x')
 shufflNet_wcw_model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
     
 wcw_model_checkpoint = keras.callbacks.ModelCheckpoint(filepath='/WACV_Paper/Models_RAW/LOW_ShuffleNet_RAW_wCW.keras', save_best_only=True, monitor='val_accuracy', mode='max', verbose=1)
