@@ -27,9 +27,9 @@ from tensorflow.keras.optimizers import Adam
 models = []
 class_1_accuracies = []
 
-original_dir = '/WACV_Paper/Dataset/maid-dataset-high-frequency/original'
-denoised_dir = '/WACV_Paper/Dataset/maid-dataset-high-frequency/denoised'
-csv_path     = '/WACV_Paper/Dataset/maid-dataset-high-frequency/classified_label.csv'
+original_dir = '/WACV_Paper/Dataset/maid-dataset-low-frequency/original'
+denoised_dir = '/WACV_Paper/Dataset/maid-dataset-low-frequency/denoised'
+csv_path     = '/WACV_Paper/Dataset/maid-dataset-low-frequency/classified_label.csv'
 
 result_file_path = "/WACV_Paper/Result/LOW_Frequency_RAW_Results.csv"
 
