@@ -207,7 +207,7 @@ class InvertedResidual(layers.Layer):
         return out
 
 class ShuffleNetV2(models.Model):
-    def __init__(self, input_shape=(224, 224, 1), num_classes=1, model_size='1.0x'):
+    def __init__(self, input_shape=(224, 224, 1), num_classes=1, model_size='0.5x'):
         super(ShuffleNetV2, self).__init__()
 
         if model_size == '0.5x':
